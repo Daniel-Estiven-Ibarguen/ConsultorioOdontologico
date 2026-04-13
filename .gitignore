@@ -1,0 +1,23 @@
+
+# NetBeans specific
+/nbproject/private/
+/nbproject/Makefile-*.mk
+/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Maven/Gradle
+target/
+.gradle/
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.mtj.tmp/
+
+# Ignorar persistencia real
+src/main/resources/META-INF/persistence.xml

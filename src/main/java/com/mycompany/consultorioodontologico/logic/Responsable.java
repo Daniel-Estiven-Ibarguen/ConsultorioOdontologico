@@ -1,30 +1,25 @@
 
 package com.mycompany.consultorioodontologico.logic;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
 
-public class Responsable extends Persona{
+@Entity
+public class Responsable extends Persona implements Serializable{
     
-    private int id_responsable;
+    
     private String tipo_responsable;
 
     public Responsable() {
     }
 
-    public Responsable(int id_responsable, String tipo_responsable, String cedula, String nombre, String apellido, String telefono, String direccion, Date fecha_nacimiento) {
+    public Responsable(String tipo_responsable, String cedula, String nombre, String apellido, String telefono, String direccion, Date fecha_nacimiento) {
         super(cedula, nombre, apellido, telefono, direccion, fecha_nacimiento);
-        this.id_responsable = id_responsable;
         this.tipo_responsable = tipo_responsable;
     }
 
-    public int getId_responsable() {
-        return id_responsable;
-    }
-
-    public void setId_responsable(int id_responsable) {
-        this.id_responsable = id_responsable;
-    }
-
+    
     public String getTipo_responsable() {
         return tipo_responsable;
     }
@@ -32,7 +27,6 @@ public class Responsable extends Persona{
     public void setTipo_responsable(String tipo_responsable) {
         this.tipo_responsable = tipo_responsable;
     }
-    
     
     
 }

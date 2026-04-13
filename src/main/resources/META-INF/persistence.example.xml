@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <persistence-unit name="consultorio_odontologico_PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.mycompany.consultorioodontologico.logic.Horario</class>
+    <class>com.mycompany.consultorioodontologico.logic.Odontologo</class>
+    <class>com.mycompany.consultorioodontologico.logic.Paciente</class>
+    <class>com.mycompany.consultorioodontologico.logic.Persona</class>
+    <class>com.mycompany.consultorioodontologico.logic.Responsable</class>
+    <class>com.mycompany.consultorioodontologico.logic.Secretario</class>
+    <class>com.mycompany.consultorioodontologico.logic.Turno</class>
+    <class>com.mycompany.consultorioodontologico.logic.Usuario</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/NOMBRE_TU_BD"/>
+        <property name="javax.persistence.jdbc.user" value="TU_USUARIO"/>
+        <property name="javax.persistence.jdbc.password" value="TU_CONTRASEÑA"/>
+        <property name="javax.persistence.schema-generation.database.action" value="none"/>
+    </properties>
+  </persistence-unit>
+</persistence>
