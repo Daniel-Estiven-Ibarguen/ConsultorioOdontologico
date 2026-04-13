@@ -23,7 +23,7 @@ public class OdontologoJpaController implements Serializable {
     public OdontologoJpaController() {
         emf = Persistence.createEntityManagerFactory("consultorio_odontologico_PU");
     }
-    
+        
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -54,7 +54,7 @@ public class OdontologoJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                String id = odontologo.getCedula();
+                int id = odontologo.getId();
                 if (findOdontologo(id) == null) {
                     throw new NonexistentEntityException("The odontologo with id " + id + " no longer exists.");
                 }
@@ -67,7 +67,7 @@ public class OdontologoJpaController implements Serializable {
         }
     }
 
-    public void destroy(String id) throws NonexistentEntityException {
+    public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -75,7 +75,7 @@ public class OdontologoJpaController implements Serializable {
             Odontologo odontologo;
             try {
                 odontologo = em.getReference(Odontologo.class, id);
-                odontologo.getCedula();
+                odontologo.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The odontologo with id " + id + " no longer exists.", enfe);
             }
@@ -112,7 +112,7 @@ public class OdontologoJpaController implements Serializable {
         }
     }
 
-    public Odontologo findOdontologo(String id) {
+    public Odontologo findOdontologo(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Odontologo.class, id);

@@ -19,7 +19,7 @@ public class ResponsableJpaController implements Serializable {
     public ResponsableJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-            
+    
     public ResponsableJpaController() {
         emf = Persistence.createEntityManagerFactory("consultorio_odontologico_PU");
     }
@@ -54,7 +54,7 @@ public class ResponsableJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                String id = responsable.getCedula();
+                int id = responsable.getId();
                 if (findResponsable(id) == null) {
                     throw new NonexistentEntityException("The responsable with id " + id + " no longer exists.");
                 }
@@ -67,7 +67,7 @@ public class ResponsableJpaController implements Serializable {
         }
     }
 
-    public void destroy(String id) throws NonexistentEntityException {
+    public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -75,7 +75,7 @@ public class ResponsableJpaController implements Serializable {
             Responsable responsable;
             try {
                 responsable = em.getReference(Responsable.class, id);
-                responsable.getCedula();
+                responsable.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The responsable with id " + id + " no longer exists.", enfe);
             }
@@ -112,7 +112,7 @@ public class ResponsableJpaController implements Serializable {
         }
     }
 
-    public Responsable findResponsable(String id) {
+    public Responsable findResponsable(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Responsable.class, id);

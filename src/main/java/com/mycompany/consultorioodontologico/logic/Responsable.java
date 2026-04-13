@@ -14,8 +14,8 @@ public class Responsable extends Persona implements Serializable{
     public Responsable() {
     }
 
-    public Responsable(String tipo_responsable, String cedula, String nombre, String apellido, String telefono, String direccion, Date fecha_nacimiento) {
-        super(cedula, nombre, apellido, telefono, direccion, fecha_nacimiento);
+    public Responsable(String tipo_responsable, int id, String cedula, String nombre, String apellido, String telefono, String direccion, Date fecha_nacimiento) {
+        super(id, cedula, nombre, apellido, telefono, direccion, fecha_nacimiento);
         this.tipo_responsable = tipo_responsable;
     }
 

@@ -12,10 +12,10 @@
     <class>com.mycompany.consultorioodontologico.logic.Usuario</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/NOMBRE_TU_BD"/>
-        <property name="javax.persistence.jdbc.user" value="TU_USUARIO"/>
-        <property name="javax.persistence.jdbc.password" value="TU_CONTRASEÑA"/>
-        <property name="javax.persistence.schema-generation.database.action" value="none"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/NOMBRE_TU_BD"/>
+      <property name="javax.persistence.jdbc.user" value="TU_USUARIO"/>
+      <property name="javax.persistence.jdbc.password" value="TU_CONTRASEÑA"/>
+      <property name="javax.persistence.schema-generation.database.action" value="none"/>
     </properties>
   </persistence-unit>
 </persistence>

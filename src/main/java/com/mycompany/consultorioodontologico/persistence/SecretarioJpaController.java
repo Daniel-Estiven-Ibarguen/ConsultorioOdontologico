@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.consultorioodontologico.persistence;
 
 import com.mycompany.consultorioodontologico.logic.Secretario;
@@ -16,10 +13,7 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- *
- * @author danie
- */
+
 public class SecretarioJpaController implements Serializable {
 
     public SecretarioJpaController(EntityManagerFactory emf) {
@@ -29,7 +23,7 @@ public class SecretarioJpaController implements Serializable {
     public SecretarioJpaController() {
         emf = Persistence.createEntityManagerFactory("consultorio_odontologico_PU");
     }
-    
+        
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -60,7 +54,7 @@ public class SecretarioJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                String id = secretario.getCedula();
+                int id = secretario.getId();
                 if (findSecretario(id) == null) {
                     throw new NonexistentEntityException("The secretario with id " + id + " no longer exists.");
                 }
@@ -73,7 +67,7 @@ public class SecretarioJpaController implements Serializable {
         }
     }
 
-    public void destroy(String id) throws NonexistentEntityException {
+    public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -81,7 +75,7 @@ public class SecretarioJpaController implements Serializable {
             Secretario secretario;
             try {
                 secretario = em.getReference(Secretario.class, id);
-                secretario.getCedula();
+                secretario.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The secretario with id " + id + " no longer exists.", enfe);
             }
@@ -118,7 +112,7 @@ public class SecretarioJpaController implements Serializable {
         }
     }
 
-    public Secretario findSecretario(String id) {
+    public Secretario findSecretario(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Secretario.class, id);

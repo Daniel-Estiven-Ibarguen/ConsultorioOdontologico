@@ -16,12 +16,11 @@ public class Secretario extends Persona implements Serializable{
     public Secretario() {
     }
 
-    public Secretario(String sector, Usuario un_usuario, String cedula, String nombre, String apellido, String telefono, String direccion, Date fecha_nacimiento) {
-        super(cedula, nombre, apellido, telefono, direccion, fecha_nacimiento);
+    public Secretario(String sector, Usuario un_usuario, int id, String cedula, String nombre, String apellido, String telefono, String direccion, Date fecha_nacimiento) {
+        super(id, cedula, nombre, apellido, telefono, direccion, fecha_nacimiento);
         this.sector = sector;
         this.un_usuario = un_usuario;
     }
-
 
     public String getSector() {
         return sector;

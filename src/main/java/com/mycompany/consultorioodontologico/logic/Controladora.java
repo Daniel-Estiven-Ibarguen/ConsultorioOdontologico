@@ -39,7 +39,7 @@ public class Controladora {
         controlPersis.eliminarOdontologo(id);
     }
     
-    public Horario buscarOdontologo(int id){
+    public Odontologo buscarOdontologo(int id){
         return controlPersis.buscarOdontologo(id);
     }
     
@@ -56,7 +56,7 @@ public class Controladora {
         controlPersis.eliminarPaciente(id);
     }
     
-    public Horario buscarPaciente(int id){
+    public Paciente buscarPaciente(int id){
         return controlPersis.buscarPaciente(id);
     }
     
@@ -73,7 +73,7 @@ public class Controladora {
         controlPersis.eliminarResponsable(id);
     }
     
-    public Horario buscarResponsable(int id){
+    public Responsable buscarResponsable(int id){
         return controlPersis.buscarResponsable(id);
     }
     
@@ -90,7 +90,7 @@ public class Controladora {
         controlPersis.eliminarSecretario(id);
     }
     
-    public Horario buscarSecretario(int id){
+    public Secretario buscarSecretario(int id){
         return controlPersis.buscarSecretario(id);
     }
     
@@ -108,7 +108,7 @@ public class Controladora {
         controlPersis.eliminarTurno(id);
     }
     
-    public Horario buscarTurno(int id){
+    public Turno buscarTurno(int id){
         return controlPersis.buscarTurno(id);
     }
     
@@ -126,7 +126,7 @@ public class Controladora {
         controlPersis.eliminarUsuario(id);
     }
     
-    public Horario buscarUsuario(int id){
+    public Usuario buscarUsuario(int id){
         return controlPersis.buscarUsuario(id);
     }
     
