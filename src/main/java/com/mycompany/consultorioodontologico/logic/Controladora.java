@@ -2,6 +2,7 @@
 package com.mycompany.consultorioodontologico.logic;
 
 import com.mycompany.consultorioodontologico.persistence.ControladoraPersistencia;
+import java.util.ArrayList;
 
 
 public class Controladora {
@@ -42,6 +43,11 @@ public class Controladora {
     public Odontologo buscarOdontologo(int id){
         return controlPersis.buscarOdontologo(id);
     }
+    
+    public ArrayList<Odontologo> buscarListaOdontologos(){
+        return controlPersis.buscarListaOdontologos();
+    }
+    
     
     //Crud paciente
     public void crearPaciente(Paciente paciente){

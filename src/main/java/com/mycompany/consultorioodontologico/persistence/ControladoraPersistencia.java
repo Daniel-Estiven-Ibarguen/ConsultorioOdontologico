@@ -1,4 +1,3 @@
-
 package com.mycompany.consultorioodontologico.persistence;
 
 import com.mycompany.consultorioodontologico.logic.Horario;
@@ -9,12 +8,13 @@ import com.mycompany.consultorioodontologico.logic.Secretario;
 import com.mycompany.consultorioodontologico.logic.Turno;
 import com.mycompany.consultorioodontologico.logic.Usuario;
 import com.mycompany.consultorioodontologico.persistence.exceptions.NonexistentEntityException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class ControladoraPersistencia {
-    
+
     HorarioJpaController horaJpa = new HorarioJpaController();
     OdontologoJpaController odontoJpa = new OdontologoJpaController();
     PacienteJpaController pacienteJpa = new PacienteJpaController();
@@ -73,6 +73,14 @@ public class ControladoraPersistencia {
     public Odontologo buscarOdontologo(int id) {
         return odontoJpa.findOdontologo(id);
     }
+
+    public ArrayList<Odontologo> buscarListaOdontologos() {
+        
+        List<Odontologo> lista = odontoJpa.findOdontologoEntities();
+        ArrayList<Odontologo> lista_final = new ArrayList<> (lista);
+        
+        return lista_final;
+    }
     
     
 
@@ -100,8 +108,6 @@ public class ControladoraPersistencia {
         return pacienteJpa.findPaciente(id);
     }
 
-    
-    
     public void crearResponsable(Responsable responsable) {
         responsableJpa.create(responsable);
     }
@@ -125,8 +131,6 @@ public class ControladoraPersistencia {
     public Responsable buscarResponsable(int id) {
         return responsableJpa.findResponsable(id);
     }
-    
-    
 
     public void crearSecretario(Secretario secretario) {
         secretarioJpa.create(secretario);
@@ -147,8 +151,6 @@ public class ControladoraPersistencia {
     public Secretario buscarSecretario(int id) {
         return secretarioJpa.findSecretario(id);
     }
-    
-    
 
     public void crearTurno(Turno turno) {
         turnoJpa.create(turno);
@@ -173,8 +175,6 @@ public class ControladoraPersistencia {
     public Turno buscarTurno(int id) {
         return turnoJpa.findTurno(id);
     }
-    
-    
 
     public void crearUsuario(Usuario usuario) {
         usuarioJpa.create(usuario);
@@ -199,5 +199,5 @@ public class ControladoraPersistencia {
     public Usuario buscarUsuario(int id) {
         return usuarioJpa.findUsuario(id);
     }
-    
+
 }
