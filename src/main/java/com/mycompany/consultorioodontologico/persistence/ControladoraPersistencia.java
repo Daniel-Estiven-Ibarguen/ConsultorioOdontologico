@@ -200,4 +200,12 @@ public class ControladoraPersistencia {
         return usuarioJpa.findUsuario(id);
     }
 
+    public ArrayList<Usuario> buscarListaUsuarios() {
+        
+        List<Usuario> primera = usuarioJpa.findUsuarioEntities();
+        ArrayList<Usuario> lista_final = new ArrayList<> (primera);
+        
+        return lista_final;
+    }
+
 }

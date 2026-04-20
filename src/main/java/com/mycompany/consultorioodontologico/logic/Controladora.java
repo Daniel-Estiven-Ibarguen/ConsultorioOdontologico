@@ -135,5 +135,9 @@ public class Controladora {
     public Usuario buscarUsuario(int id){
         return controlPersis.buscarUsuario(id);
     }
+
+    public ArrayList<Usuario> buscarListaUsuarios() {
+        return controlPersis.buscarListaUsuarios();
+    }
     
 }

@@ -2,59 +2,39 @@
 package com.mycompany.consultorioodontologico.servlets;
 
 import com.mycompany.consultorioodontologico.logic.Controladora;
-import com.mycompany.consultorioodontologico.logic.Usuario;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
-@WebServlet(name = "SvUsuario", urlPatterns = {"/SvUsuario"})
-public class SvUsuario extends HttpServlet {
+@WebServlet(name = "SvEliminarUsuario", urlPatterns = {"/SvEliminarUsuario"})
+public class SvEliminarUsuario extends HttpServlet {
     Controladora control = new Controladora();
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
-        ArrayList<Usuario> lista_usu = control.buscarListaUsuarios();
-        
-        HttpSession misesion = request.getSession();
-        misesion.setAttribute("lista_usuarios", lista_usu);
-        
-        response.sendRedirect("ver_usuarios.jsp");
+        processRequest(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String nombre = request.getParameter("nombre_usuario");
-        String contra = request.getParameter("contra");
-        String rol = request.getParameter("rol");
+        int id = Integer.parseInt(request.getParameter("id"));
         
-        Usuario usu = new Usuario();
-        usu.setNombre_usuario(nombre);
-        usu.setContrasenia(contra);
-        usu.setRol(rol);
-        
-        control.crearUsuario(usu);
-        
-        response.sendRedirect("index.jsp");
+        control.eliminarUsuario(id);
         
     }
-
 
     @Override
     public String getServletInfo() {
