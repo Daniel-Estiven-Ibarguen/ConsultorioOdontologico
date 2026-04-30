@@ -139,5 +139,30 @@ public class Controladora {
     public ArrayList<Usuario> buscarListaUsuarios() {
         return controlPersis.buscarListaUsuarios();
     }
+
+    public boolean comprobarUsuario(String nombre, String contra) {
+        
+        boolean validacion = false;
+        
+        ArrayList<Usuario> lista = new ArrayList();
+        lista = controlPersis.buscarListaUsuarios();  
+        
+        for(Usuario usu: lista){
+            
+            if(usu.getNombre_usuario().equals(nombre)){
+                if(usu.getContrasenia().equals(contra)){
+                    validacion = true;
+                    
+                }else{
+                    validacion = false;
+                    
+                }
+                
+            }
+        
+        }
+        
+        return validacion;
+    }
     
 }
